@@ -31,3 +31,22 @@ class Person {
     return `Name: ${this.name}, Age: ${this.age}`;
   }
 }
+
+
+
+type FilterPropertyType = {
+  title: string;
+  rating: number;
+};
+
+const filterByRating = (value: FilterPropertyType[]): FilterPropertyType[] => {
+  let filterData: FilterPropertyType[] = [];
+
+  for (const item of value) {
+    if (item.rating >= 4) {
+      filterData.push(item);
+    }
+  }
+
+  return filterData;
+};
