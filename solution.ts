@@ -67,3 +67,26 @@ const filterActiveUsers = (persons: User[]): User[] => {
 
   return activePersons;
 };
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book) => {
+  const { title, author, publishedYear, isAvailable } = book;
+
+  let availableOrNot: string;
+
+  if (isAvailable === true) {
+    availableOrNot = "Yes";
+  } else {
+    availableOrNot = "No";
+  }
+
+  console.log(
+    `Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${availableOrNot}`
+  );
+};
