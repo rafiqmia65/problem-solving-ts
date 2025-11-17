@@ -131,3 +131,24 @@ const getUniqueValues = (
 
   return filteredArray;
 };
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+
+const calculateTotalPrice = (products: Product[]): number => {
+  return products
+    .map((product) => {
+      const total = product.price * product.quantity;
+
+      if (product.discount) {
+        return total * (1 - product.discount / 100);
+      }
+
+      return total;
+    })
+    .reduce((acc, curr) => acc + curr, 0);
+};
