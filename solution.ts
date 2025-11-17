@@ -90,3 +90,44 @@ const printBookDetails = (book: Book) => {
     `Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${availableOrNot}`
   );
 };
+
+const getUniqueValues = (
+  array1: (number | string)[],
+  array2: (number | string)[]
+): (number | string)[] => {
+  let filteredArray: (number | string)[] = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    const current1 = array1[i]!;
+    let isDuplicate = false;
+
+    for (let a = 0; a < filteredArray.length; a++) {
+      if (current1 === filteredArray[a]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      filteredArray.push(current1);
+    }
+  }
+
+  for (let i = 0; i < array2.length; i++) {
+    const current2 = array2[i]!;
+    let isDuplicate = false;
+
+    for (let a = 0; a < filteredArray.length; a++) {
+      if (current2 === filteredArray[a]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      filteredArray.push(current2);
+    }
+  }
+
+  return filteredArray;
+};
