@@ -32,8 +32,6 @@ class Person {
   }
 }
 
-
-
 type FilterPropertyType = {
   title: string;
   rating: number;
@@ -49,4 +47,23 @@ const filterByRating = (value: FilterPropertyType[]): FilterPropertyType[] => {
   }
 
   return filterData;
+};
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
+const filterActiveUsers = (persons: User[]): User[] => {
+  let activePersons: User[] = [];
+
+  for (const person of persons) {
+    if (person.isActive === true) {
+      activePersons.push(person);
+    }
+  }
+
+  return activePersons;
 };
