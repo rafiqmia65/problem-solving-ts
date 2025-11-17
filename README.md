@@ -1,4 +1,4 @@
-# TypeScript Concepts – Bangla Blog Style
+# TypeScript Concepts
 
 ## 🏷️ ১. Interface vs Type
 
