@@ -97,36 +97,25 @@ const getUniqueValues = (
 ): (number | string)[] => {
   let filteredArray: (number | string)[] = [];
 
-  for (let i = 0; i < array1.length; i++) {
-    const current1 = array1[i]!;
+  const addIfUnique = (value: number | string) => {
     let isDuplicate = false;
-
-    for (let a = 0; a < filteredArray.length; a++) {
-      if (current1 === filteredArray[a]) {
+    for (let i = 0; i < filteredArray.length; i++) {
+      if (filteredArray[i] === value) {
         isDuplicate = true;
         break;
       }
     }
-
     if (!isDuplicate) {
-      filteredArray.push(current1);
+      filteredArray = [...filteredArray, value];
     }
+  };
+
+  for (let i = 0; i < array1.length; i++) {
+    addIfUnique(array1[i]!);
   }
 
   for (let i = 0; i < array2.length; i++) {
-    const current2 = array2[i]!;
-    let isDuplicate = false;
-
-    for (let a = 0; a < filteredArray.length; a++) {
-      if (current2 === filteredArray[a]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-
-    if (!isDuplicate) {
-      filteredArray.push(current2);
-    }
+    addIfUnique(array2[i]!);
   }
 
   return filteredArray;
